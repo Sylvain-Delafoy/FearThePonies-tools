@@ -1,0 +1,19 @@
+version: '3'
+services:
+  feartheponies:
+    build: FearThePonies
+    ports:
+    - "8080:8080"
+    volumes:
+    - /etc/timezone:/etc/timezone
+    command: sh -c "dpkg-reconfigure -f noninteractive tzdata && dotnet run"
+  tooling:
+    image: node
+    ports:
+    - "4200:4200"
+    - "9876:9876"
+    - "49153:49153"
+    volumes:
+    - ./tooling:/app
+    working_dir: /app/my-app
+    command: sh -c "npm start & npm test"

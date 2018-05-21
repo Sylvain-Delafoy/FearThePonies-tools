@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/*
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+*/
+
+.toolbox{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.message, .alphabet, .algorithm{
+  width: calc(42% - 2px);
+  margin-right: 2%;
+  margin-left: 2%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+div.message{
+
+}
+div.message>label{
+  color: rgba(0,0,0,.54);
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight:400;
+  font-size:12px;
+  padding-bottom: 7px;
+}
+div.message>pre{
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    border-bottom: 1px solid rgba(0,0,0,.42);
+    margin: 0px;
+    margin-bottom: 1.25em;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    line-height: 18px;
+}

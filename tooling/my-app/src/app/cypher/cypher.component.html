@@ -1,0 +1,19 @@
+<form [formGroup]="fc" class="toolbox">
+  <mat-form-field class="alphabet">
+    <input placeholder="Alphabet source" matInput formControlName="sourceAlphabet" />
+  </mat-form-field>
+  <div class="algorithm">
+    <mat-radio-group formControlName="style">
+      <mat-radio-button value="substitution">Etape 1</mat-radio-button>
+      <mat-radio-button value="vigenere">Etape 2</mat-radio-button>
+    </mat-radio-group>
+    <mat-checkbox formControlName="decode">Decoder mode</mat-checkbox>
+  </div>
+  <mat-form-field class="message">
+    <textarea cdkTextareaAutosize [placeholder]="sourceLabel" matInput formControlName="codedMessage"> </textarea>
+  </mat-form-field>
+  <div class="message">
+    <label class="">{{targetLabel}}</label>
+    <pre>{{processedMessage}}</pre>
+  </div>
+</form>
