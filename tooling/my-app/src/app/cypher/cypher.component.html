@@ -12,8 +12,7 @@
   <mat-form-field class="message">
     <textarea cdkTextareaAutosize [placeholder]="sourceLabel" matInput formControlName="codedMessage"> </textarea>
   </mat-form-field>
-  <div class="message">
-    <label class="">{{targetLabel}}</label>
-    <pre>{{processedMessage}}</pre>
-  </div>
+  <mat-form-field class="message">
+    <textarea cdkTextareaAutosize [placeholder]="targetLabel" matInput readonly [value]="processedMessage"> </textarea>
+  </mat-form-field>
 </form>

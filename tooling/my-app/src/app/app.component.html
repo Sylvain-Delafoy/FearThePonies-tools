@@ -1,7 +1,18 @@
-<div style="text-align:center">
-  <h1>
-    Boite à outils!
-  </h1>
-</div>
-<app-alphabet></app-alphabet>
-<app-cypher></app-cypher>
+<h1 style="text-align:center">
+  Boite à outils!
+</h1>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened>
+    <ul>
+      <li>
+        <a [routerLink]="['cypher']" routerLinkActive="active">Chiffrer/Déchiffrer</a>
+      </li>
+      <li>
+        <a [routerLink]="['alphabet']" routerLinkActive="active">Générer un alphabet</a>
+      </li>
+    </ul>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

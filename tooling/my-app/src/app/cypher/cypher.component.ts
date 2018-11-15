@@ -9,8 +9,8 @@ import { Observable, combineLatest, of, concat } from 'rxjs';
 })
 export class CypherComponent implements OnInit {
   fc: FormGroup; // <--- heroForm is of type FormGroup
-  sourceLabel: string = '1';
-  targetLabel: string = '2';
+  sourceLabel = '1';
+  targetLabel = '2';
   processedMessage: string;
 
   constructor(private fb: FormBuilder) { // <--- inject FormBuilder
@@ -51,7 +51,7 @@ export class CypherComponent implements OnInit {
 
 function decodeWord(message: String, decode: Boolean, passwordAlphabets: String[]) {
   return (function () {
-    let final = '';
+    let result = '';
     for (let idx = 0, pwdIdx = 0; idx < message.length; idx++) {
       const sourceCharacter = message[idx];
       let c;
@@ -63,9 +63,9 @@ function decodeWord(message: String, decode: Boolean, passwordAlphabets: String[
       if (bothCaseAlphabet.includes(sourceCharacter)) {
         pwdIdx = (pwdIdx + 1) % passwordAlphabets.length;
       }
-      final += c;
+      result += c;
     }
-    return final;
+    return result;
   })();
 }
 export const alphabet = 'abcdefghijklmnopqrstuvwxyz';
@@ -94,8 +94,8 @@ export function cypher(algorithm: 'vigenere'|'substitution', password: String, m
 export function shiftAlphabetBy(currShift: number): string {
   return alphabet.substring(currShift) + alphabet.substring(0, currShift);
 }
-export function generateAlphabets(algorithm: 'vigenere'|'substitution', password: String): String[] {
 
+export function generateAlphabets(algorithm: 'vigenere'|'substitution', password: String): String[] {
   let passwordAlphabets: String[];
   switch (algorithm) {
     case 'vigenere':
