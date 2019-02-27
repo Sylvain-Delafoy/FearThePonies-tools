@@ -17,3 +17,10 @@ services:
     - ./tooling:/app
     working_dir: /app/my-app
     command: sh -c "npm start & npm test"
+  anaconda:
+    image: continuumio/anaconda3
+    ports:
+    - "8888:8888"
+    volumes:
+    - "./notebooks:/opt/notebooks"
+    command: /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='0.0.0.0' --port=8888 --no-browser --allow-root" 
